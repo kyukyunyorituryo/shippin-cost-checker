@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"name": "shipping-cost-checker",
+	"version": "1.0.0",
+	"short_name": "送料チェッカー",
+	"permissions": [
+	"activeTab",
+	"storage"
+	],
+	"options_ui": {
+		"page": "popup.html",
+		"chrome_style": true},
+	"browser_action": {
+		"default_popup": "popup.html",
+		"default_icon": "ship.png",
+		"default_title": "送料チェッカー"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://www.amazon.co.jp/gp/buy/spc/handlers/display.html*"],
+			"js": [ "myscript.js"],
+			"run_at" : "document_end"
+		}
+	],
+	"description": "amazonの送料をチェックする",
+	"icons": {
+		"128": "ship.png"}
+}
